@@ -9,13 +9,13 @@ import java.util.function.Consumer;
 
 public class ProtocolProvider implements AutoCloseable {
 
-    private final ProtocolHandler handler;
+    private final ProtocolEngine engine;
     private final TicketProtocol ticketProtocol;
 
     public ProtocolProvider(final MbsSdkConfig sdkConfig, final Consumer<Exception> unhandledExceptionHandler) {
         final ImmutableConfig config = new ImmutableConfig(sdkConfig);
-        this.handler = new ProtocolHandler(config, unhandledExceptionHandler);
-        this.ticketProtocol = new TicketProtocolImpl(this.handler);
+        this.engine = new ProtocolEngine(config, unhandledExceptionHandler);
+        this.ticketProtocol = new TicketProtocolImpl(this.engine);
     }
 
     public TicketProtocol getTicketProtocol() {
@@ -23,11 +23,11 @@ public class ProtocolProvider implements AutoCloseable {
     }
 
     public void connect() {
-        this.handler.connect();
+        this.engine.connect();
     }
 
     @Override
     public void close() {
-        ExcSuppress.close(this.handler);
+        ExcSuppress.close(this.engine);
     }
 }

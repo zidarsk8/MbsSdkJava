@@ -4,9 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ErrorResponse extends ContentResponse {
 
-    @JsonProperty("errorMessage")
+    @JsonProperty("message")
     private String errorMessage;
-    @JsonProperty("errorCode")
+    @JsonProperty("code")
     private int errorCode;
 
     public static Builder newBuilder() {

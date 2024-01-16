@@ -33,7 +33,7 @@ import static com.sportradar.mbs.sdk.internal.utils.Extensions.randomString;
 import static com.sportradar.mbs.sdk.internal.utils.TimeUtils.nowUtcMillis;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
-public class ProtocolHandler implements AutoCloseable {
+public class ProtocolEngine implements AutoCloseable {
 
     private static final int MAX_CHUNK_SIZE = 32_000;
     private static final int MAX_MSG_SIZE = 4 * MAX_CHUNK_SIZE;
@@ -50,7 +50,7 @@ public class ProtocolHandler implements AutoCloseable {
 
     private Thread[] receiverThreads;
 
-    public ProtocolHandler(final ImmutableConfig config, final Consumer<Exception> unhandledExceptionHandler) {
+    public ProtocolEngine(final ImmutableConfig config, final Consumer<Exception> unhandledExceptionHandler) {
         this.config = config;
         this.sendQueue = new LinkedBlockingQueue<>();
         this.receiveQueue = new LinkedBlockingQueue<>();

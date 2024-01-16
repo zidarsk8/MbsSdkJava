@@ -8,49 +8,49 @@ import java.util.concurrent.CompletableFuture;
 
 class TicketProtocolImpl implements TicketProtocol {
 
-    private final ProtocolHandler handler;
+    private final ProtocolEngine engine;
 
-    public TicketProtocolImpl(final ProtocolHandler handler) {
-        this.handler = handler;
+    public TicketProtocolImpl(final ProtocolEngine engine) {
+        this.engine = engine;
     }
 
     @Override
     public CompletableFuture<TicketResponse> sendTicketAsync(final TicketRequest request) {
-        return handler.execute("ticket-placement", request, TicketResponse.class);
+        return engine.execute("ticket-placement", request, TicketResponse.class);
     }
 
     @Override
     public CompletableFuture<TicketAckResponse> sendTicketAckAsync(final TicketAckRequest request) {
-        return handler.execute("ticket-ack", request, TicketAckResponse.class);
+        return engine.execute("ticket-ack", request, TicketAckResponse.class);
     }
 
     @Override
     public CompletableFuture<CancelResponse> sendCancelAsync(final CancelRequest request) {
-        return handler.execute("cancel", request, CancelResponse.class);
+        return engine.execute("cancel", request, CancelResponse.class);
     }
 
     @Override
     public CompletableFuture<CancelAckResponse> sendCancelAckAsync(final CancelAckRequest request) {
-        return handler.execute("cancel-ack", request, CancelAckResponse.class);
+        return engine.execute("cancel-ack", request, CancelAckResponse.class);
     }
 
     @Override
     public CompletableFuture<CashoutResponse> sendCashoutAsync(final CashoutRequest request) {
-        return handler.execute("cashout", request, CashoutResponse.class);
+        return engine.execute("cashout", request, CashoutResponse.class);
     }
 
     @Override
     public CompletableFuture<CashoutAckResponse> sendCashoutAckAsync(final CashoutAckRequest request) {
-        return handler.execute("cashout-ack", request, CashoutAckResponse.class);
+        return engine.execute("cashout-ack", request, CashoutAckResponse.class);
     }
 
     @Override
     public CompletableFuture<ExtSettlementResponse> sendExtSettlementAsync(final ExtSettlementRequest request) {
-        return handler.execute("ext-settlement", request, ExtSettlementResponse.class);
+        return engine.execute("ext-settlement", request, ExtSettlementResponse.class);
     }
 
     @Override
     public CompletableFuture<ExtSettlementAckResponse> sendExtSettlementAckAsync(final ExtSettlementAckRequest request) {
-        return handler.execute("ext-settlement-ack", request, ExtSettlementAckResponse.class);
+        return engine.execute("ext-settlement-ack", request, ExtSettlementAckResponse.class);
     }
 }
