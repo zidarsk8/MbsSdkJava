@@ -20,52 +20,97 @@ public class TicketContext {
     @JsonProperty("endCustomer")
     private EndCustomer endCustomer;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getWalletId() {
-        return walletId;
+        return this.walletId;
     }
 
     public void setWalletId(String value) {
-        walletId = value;
+        this.walletId = value;
     }
 
     public TicketRef getRef() {
-        return ref;
+        return this.ref;
     }
 
     public void setRef(TicketRef value) {
-        ref = value;
+        this.ref = value;
     }
 
     public Channel getChannel() {
-        return channel;
+        return this.channel;
     }
 
     public void setChannel(Channel value) {
-        channel = value;
+        this.channel = value;
     }
 
     public long getLimitId() {
-        return limitId;
+        return this.limitId;
     }
 
     public void setLimitId(long value) {
-        limitId = value;
+        this.limitId = value;
     }
 
     public Payout[] getPayoutCap() {
-        return payoutCap;
+        return this.payoutCap;
     }
 
     public void setPayoutCap(Payout[] value) {
-        payoutCap = value;
+        this.payoutCap = value;
     }
 
     public EndCustomer getEndCustomer() {
-        return endCustomer;
+        return this.endCustomer;
     }
 
     public void setEndCustomer(EndCustomer value) {
-        endCustomer = value;
+        this.endCustomer = value;
     }
 
+    public static class Builder {
+
+        private final TicketContext instance = new TicketContext();
+
+        private Builder() {
+        }
+
+        public TicketContext build() {
+            return this.instance;
+        }
+
+        public Builder setWalletId(String value) {
+            this.instance.setWalletId(value);
+            return this;
+        }
+
+        public Builder setRef(TicketRef value) {
+            this.instance.setRef(value);
+            return this;
+        }
+
+        public Builder setChannel(Channel value) {
+            this.instance.setChannel(value);
+            return this;
+        }
+
+        public Builder setLimitId(long value) {
+            this.instance.setLimitId(value);
+            return this;
+        }
+
+        public Builder setPayoutCap(Payout... value) {
+            this.instance.setPayoutCap(value);
+            return this;
+        }
+
+        public Builder setEndCustomer(EndCustomer value) {
+            this.instance.setEndCustomer(value);
+            return this;
+        }
+    }
 }

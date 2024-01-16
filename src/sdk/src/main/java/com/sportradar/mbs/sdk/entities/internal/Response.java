@@ -16,44 +16,84 @@ public class Response {
     @JsonProperty("content")
     private ContentResponse content;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCorrelationId() {
-        return correlationId;
+        return this.correlationId;
     }
 
     public void setCorrelationId(String value) {
-        correlationId = value;
+        this.correlationId = value;
     }
 
     public long getTimestampUtc() {
-        return timestampUtc;
+        return this.timestampUtc;
     }
 
     public void setTimestampUtc(long value) {
-        timestampUtc = value;
+        this.timestampUtc = value;
     }
 
     public String getOperation() {
-        return operation;
+        return this.operation;
     }
 
     public void setOperation(String value) {
-        operation = value;
+        this.operation = value;
     }
 
     public String getVersion() {
-        return version;
+        return this.version;
     }
 
     public void setVersion(String value) {
-        version = value;
+        this.version = value;
     }
 
     public ContentResponse getContent() {
-        return content;
+        return this.content;
     }
 
     public void setContent(ContentResponse value) {
-        content = value;
+        this.content = value;
     }
 
+    public static class Builder {
+
+        private final Response instance = new Response();
+
+        private Builder() {
+        }
+
+        public Response build() {
+            return this.instance;
+        }
+
+        public Builder setCorrelationId(String value) {
+            this.instance.setCorrelationId(value);
+            return this;
+        }
+
+        public Builder setTimestampUtc(long value) {
+            this.instance.setTimestampUtc(value);
+            return this;
+        }
+
+        public Builder setOperation(String value) {
+            this.instance.setOperation(value);
+            return this;
+        }
+
+        public Builder setVersion(String value) {
+            this.instance.setVersion(value);
+            return this;
+        }
+
+        public Builder setContent(ContentResponse value) {
+            this.instance.setContent(value);
+            return this;
+        }
+    }
 }

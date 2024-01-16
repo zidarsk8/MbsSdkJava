@@ -18,52 +18,97 @@ public class UfSelection extends Selection {
     @JsonProperty("marketId")
     private String marketId;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getEventId() {
-        return eventId;
+        return this.eventId;
     }
 
     public void setEventId(String value) {
-        eventId = value;
+        this.eventId = value;
     }
 
     public String getProductId() {
-        return productId;
+        return this.productId;
     }
 
     public void setProductId(String value) {
-        productId = value;
+        this.productId = value;
     }
 
     public Odds getOdds() {
-        return odds;
+        return this.odds;
     }
 
     public void setOdds(Odds value) {
-        odds = value;
+        this.odds = value;
     }
 
     public String getOutcomeId() {
-        return outcomeId;
+        return this.outcomeId;
     }
 
     public void setOutcomeId(String value) {
-        outcomeId = value;
+        this.outcomeId = value;
     }
 
     public String getSpecifiers() {
-        return specifiers;
+        return this.specifiers;
     }
 
     public void setSpecifiers(String value) {
-        specifiers = value;
+        this.specifiers = value;
     }
 
     public String getMarketId() {
-        return marketId;
+        return this.marketId;
     }
 
     public void setMarketId(String value) {
-        marketId = value;
+        this.marketId = value;
     }
 
+    public static class Builder {
+
+        private final UfSelection instance = new UfSelection();
+
+        private Builder() {
+        }
+
+        public UfSelection build() {
+            return this.instance;
+        }
+
+        public Builder setEventId(String value) {
+            this.instance.setEventId(value);
+            return this;
+        }
+
+        public Builder setProductId(String value) {
+            this.instance.setProductId(value);
+            return this;
+        }
+
+        public Builder setOdds(Odds value) {
+            this.instance.setOdds(value);
+            return this;
+        }
+
+        public Builder setOutcomeId(String value) {
+            this.instance.setOutcomeId(value);
+            return this;
+        }
+
+        public Builder setSpecifiers(String value) {
+            this.instance.setSpecifiers(value);
+            return this;
+        }
+
+        public Builder setMarketId(String value) {
+            this.instance.setMarketId(value);
+            return this;
+        }
+    }
 }

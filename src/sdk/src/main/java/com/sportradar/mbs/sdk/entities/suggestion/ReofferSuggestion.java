@@ -10,20 +10,45 @@ public class ReofferSuggestion extends Suggestion {
     @JsonProperty("stake")
     private Stake[] stake;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getMode() {
-        return mode;
+        return this.mode;
     }
 
     public void setMode(String value) {
-        mode = value;
+        this.mode = value;
     }
 
     public Stake[] getStake() {
-        return stake;
+        return this.stake;
     }
 
     public void setStake(Stake[] value) {
-        stake = value;
+        this.stake = value;
     }
 
+    public static class Builder {
+
+        private final ReofferSuggestion instance = new ReofferSuggestion();
+
+        private Builder() {
+        }
+
+        public ReofferSuggestion build() {
+            return this.instance;
+        }
+
+        public Builder setMode(String value) {
+            this.instance.setMode(value);
+            return this;
+        }
+
+        public Builder setStake(Stake... value) {
+            this.instance.setStake(value);
+            return this;
+        }
+    }
 }

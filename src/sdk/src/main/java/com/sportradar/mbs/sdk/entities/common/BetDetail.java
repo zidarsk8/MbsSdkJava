@@ -16,44 +16,84 @@ public class BetDetail {
     @JsonProperty("message")
     private String message;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public int getCode() {
-        return code;
+        return this.code;
     }
 
     public void setCode(int value) {
-        code = value;
+        this.code = value;
     }
 
     public Suggestion getSuggestion() {
-        return suggestion;
+        return this.suggestion;
     }
 
     public void setSuggestion(Suggestion value) {
-        suggestion = value;
+        this.suggestion = value;
     }
 
     public String getBetId() {
-        return betId;
+        return this.betId;
     }
 
     public void setBetId(String value) {
-        betId = value;
+        this.betId = value;
     }
 
     public SelectionDetail[] getSelectionDetails() {
-        return selectionDetails;
+        return this.selectionDetails;
     }
 
     public void setSelectionDetails(SelectionDetail[] value) {
-        selectionDetails = value;
+        this.selectionDetails = value;
     }
 
     public String getMessage() {
-        return message;
+        return this.message;
     }
 
     public void setMessage(String value) {
-        message = value;
+        this.message = value;
     }
 
+    public static class Builder {
+
+        private final BetDetail instance = new BetDetail();
+
+        private Builder() {
+        }
+
+        public BetDetail build() {
+            return this.instance;
+        }
+
+        public Builder setCode(int value) {
+            this.instance.setCode(value);
+            return this;
+        }
+
+        public Builder setSuggestion(Suggestion value) {
+            this.instance.setSuggestion(value);
+            return this;
+        }
+
+        public Builder setBetId(String value) {
+            this.instance.setBetId(value);
+            return this;
+        }
+
+        public Builder setSelectionDetails(SelectionDetail... value) {
+            this.instance.setSelectionDetails(value);
+            return this;
+        }
+
+        public Builder setMessage(String value) {
+            this.instance.setMessage(value);
+            return this;
+        }
+    }
 }

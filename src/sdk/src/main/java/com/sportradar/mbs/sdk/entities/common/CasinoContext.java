@@ -12,28 +12,58 @@ public class CasinoContext {
     @JsonProperty("endCustomer")
     private EndCustomer endCustomer;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getWalletId() {
-        return walletId;
+        return this.walletId;
     }
 
     public void setWalletId(String value) {
-        walletId = value;
+        this.walletId = value;
     }
 
     public Channel getChannel() {
-        return channel;
+        return this.channel;
     }
 
     public void setChannel(Channel value) {
-        channel = value;
+        this.channel = value;
     }
 
     public EndCustomer getEndCustomer() {
-        return endCustomer;
+        return this.endCustomer;
     }
 
     public void setEndCustomer(EndCustomer value) {
-        endCustomer = value;
+        this.endCustomer = value;
     }
 
+    public static class Builder {
+
+        private final CasinoContext instance = new CasinoContext();
+
+        private Builder() {
+        }
+
+        public CasinoContext build() {
+            return this.instance;
+        }
+
+        public Builder setWalletId(String value) {
+            this.instance.setWalletId(value);
+            return this;
+        }
+
+        public Builder setChannel(Channel value) {
+            this.instance.setChannel(value);
+            return this;
+        }
+
+        public Builder setEndCustomer(EndCustomer value) {
+            this.instance.setEndCustomer(value);
+            return this;
+        }
+    }
 }

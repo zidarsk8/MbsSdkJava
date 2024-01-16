@@ -8,12 +8,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum OddsChange {
-    LOWER("lower"),
-    HIGHER("higher"),
+    NONE("none"),
     ANY("any"),
-    NONE("none");
+    HIGHER("higher"),
+    LOWER("lower");
 
-    private static final Map<String, OddsChange> VALUES = new HashMap<>();
+    private static final Map<String, OddsChange> VALUES = new HashMap();
 
     static {
         for (final OddsChange val : EnumSet.allOf(OddsChange.class)) {

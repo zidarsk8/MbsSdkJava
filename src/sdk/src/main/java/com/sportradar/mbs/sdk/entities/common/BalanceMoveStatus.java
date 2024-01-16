@@ -8,11 +8,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum BalanceMoveStatus {
-    PENDING("pending"),
     APPROVED("approved"),
+    PENDING("pending"),
     REJECTED("rejected");
 
-    private static final Map<String, BalanceMoveStatus> VALUES = new HashMap<>();
+    private static final Map<String, BalanceMoveStatus> VALUES = new HashMap();
 
     static {
         for (final BalanceMoveStatus val : EnumSet.allOf(BalanceMoveStatus.class)) {

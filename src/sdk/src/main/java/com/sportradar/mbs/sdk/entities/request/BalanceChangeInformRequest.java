@@ -23,60 +23,110 @@ public class BalanceChangeInformRequest extends ContentRequest {
     @JsonProperty("status")
     private BalanceChangeStatus status;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getWalletId() {
-        return walletId;
+        return this.walletId;
     }
 
     public void setWalletId(String value) {
-        walletId = value;
+        this.walletId = value;
     }
 
     public String getBalanceChangeId() {
-        return balanceChangeId;
+        return this.balanceChangeId;
     }
 
     public void setBalanceChangeId(String value) {
-        balanceChangeId = value;
+        this.balanceChangeId = value;
     }
 
     public Amount getAmount() {
-        return amount;
+        return this.amount;
     }
 
     public void setAmount(Amount value) {
-        amount = value;
+        this.amount = value;
     }
 
     public EndCustomer getEndCustomer() {
-        return endCustomer;
+        return this.endCustomer;
     }
 
     public void setEndCustomer(EndCustomer value) {
-        endCustomer = value;
+        this.endCustomer = value;
     }
 
     public long getExecutedAtUtc() {
-        return executedAtUtc;
+        return this.executedAtUtc;
     }
 
     public void setExecutedAtUtc(long value) {
-        executedAtUtc = value;
+        this.executedAtUtc = value;
     }
 
     public BalanceChangeSource getSource() {
-        return source;
+        return this.source;
     }
 
     public void setSource(BalanceChangeSource value) {
-        source = value;
+        this.source = value;
     }
 
     public BalanceChangeStatus getStatus() {
-        return status;
+        return this.status;
     }
 
     public void setStatus(BalanceChangeStatus value) {
-        status = value;
+        this.status = value;
     }
 
+    public static class Builder {
+
+        private final BalanceChangeInformRequest instance = new BalanceChangeInformRequest();
+
+        private Builder() {
+        }
+
+        public BalanceChangeInformRequest build() {
+            return this.instance;
+        }
+
+        public Builder setWalletId(String value) {
+            this.instance.setWalletId(value);
+            return this;
+        }
+
+        public Builder setBalanceChangeId(String value) {
+            this.instance.setBalanceChangeId(value);
+            return this;
+        }
+
+        public Builder setAmount(Amount value) {
+            this.instance.setAmount(value);
+            return this;
+        }
+
+        public Builder setEndCustomer(EndCustomer value) {
+            this.instance.setEndCustomer(value);
+            return this;
+        }
+
+        public Builder setExecutedAtUtc(long value) {
+            this.instance.setExecutedAtUtc(value);
+            return this;
+        }
+
+        public Builder setSource(BalanceChangeSource value) {
+            this.instance.setSource(value);
+            return this;
+        }
+
+        public Builder setStatus(BalanceChangeStatus value) {
+            this.instance.setStatus(value);
+            return this;
+        }
+    }
 }

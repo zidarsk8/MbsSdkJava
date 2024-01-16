@@ -4,25 +4,50 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ErrorResponse extends ContentResponse {
 
-    @JsonProperty("code")
-    private int errorCode;
-    @JsonProperty("message")
+    @JsonProperty("errorMessage")
     private String errorMessage;
+    @JsonProperty("errorCode")
+    private int errorCode;
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 
     public String getErrorMessage() {
-        return errorMessage;
+        return this.errorMessage;
     }
 
     public void setErrorMessage(String value) {
-        errorMessage = value;
+        this.errorMessage = value;
     }
 
     public int getErrorCode() {
-        return errorCode;
+        return this.errorCode;
     }
 
     public void setErrorCode(int value) {
-        errorCode = value;
+        this.errorCode = value;
     }
 
+    public static class Builder {
+
+        private final ErrorResponse instance = new ErrorResponse();
+
+        private Builder() {
+        }
+
+        public ErrorResponse build() {
+            return this.instance;
+        }
+
+        public Builder setErrorMessage(String value) {
+            this.instance.setErrorMessage(value);
+            return this;
+        }
+
+        public Builder setErrorCode(int value) {
+            this.instance.setErrorCode(value);
+            return this;
+        }
+    }
 }

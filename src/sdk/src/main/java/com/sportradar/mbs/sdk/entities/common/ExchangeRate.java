@@ -13,28 +13,58 @@ public class ExchangeRate {
     @JsonProperty("fromCurrency")
     private String fromCurrency;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getToCurrency() {
-        return toCurrency;
+        return this.toCurrency;
     }
 
     public void setToCurrency(String value) {
-        toCurrency = value;
+        this.toCurrency = value;
     }
 
     public BigDecimal getRate() {
-        return rate;
+        return this.rate;
     }
 
     public void setRate(BigDecimal value) {
-        rate = value;
+        this.rate = value;
     }
 
     public String getFromCurrency() {
-        return fromCurrency;
+        return this.fromCurrency;
     }
 
     public void setFromCurrency(String value) {
-        fromCurrency = value;
+        this.fromCurrency = value;
     }
 
+    public static class Builder {
+
+        private final ExchangeRate instance = new ExchangeRate();
+
+        private Builder() {
+        }
+
+        public ExchangeRate build() {
+            return this.instance;
+        }
+
+        public Builder setToCurrency(String value) {
+            this.instance.setToCurrency(value);
+            return this;
+        }
+
+        public Builder setRate(BigDecimal value) {
+            this.instance.setRate(value);
+            return this;
+        }
+
+        public Builder setFromCurrency(String value) {
+            this.instance.setFromCurrency(value);
+            return this;
+        }
+    }
 }

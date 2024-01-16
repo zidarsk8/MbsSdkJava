@@ -8,10 +8,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum TicketBalanceChangeAction {
-    PAYOUT("payout"),
-    PLACE("place");
+    PLACE("place"),
+    PAYOUT("payout");
 
-    private static final Map<String, TicketBalanceChangeAction> VALUES = new HashMap<>();
+    private static final Map<String, TicketBalanceChangeAction> VALUES = new HashMap();
 
     static {
         for (final TicketBalanceChangeAction val : EnumSet.allOf(TicketBalanceChangeAction.class)) {

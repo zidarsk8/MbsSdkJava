@@ -8,10 +8,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum BalanceChangeStatus {
-    VALID("valid"),
-    INVALID("invalid");
+    INVALID("invalid"),
+    VALID("valid");
 
-    private static final Map<String, BalanceChangeStatus> VALUES = new HashMap<>();
+    private static final Map<String, BalanceChangeStatus> VALUES = new HashMap();
 
     static {
         for (final BalanceChangeStatus val : EnumSet.allOf(BalanceChangeStatus.class)) {

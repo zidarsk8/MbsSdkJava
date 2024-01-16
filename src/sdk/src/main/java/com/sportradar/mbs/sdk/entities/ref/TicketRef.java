@@ -12,4 +12,13 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = ReofferTicketRef.class, name = "reoffer")
 })
 public class TicketRef {
+
+    public static AltStakeTicketRef.Builder newAltStakeTicketRefBuilder() {
+        return AltStakeTicketRef.newBuilder();
+    }
+
+    public static ReofferTicketRef.Builder newReofferTicketRefBuilder() {
+        return ReofferTicketRef.newBuilder();
+    }
+
 }

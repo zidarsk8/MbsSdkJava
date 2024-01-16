@@ -12,4 +12,13 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = AltStakeSuggestion.class, name = "alt-stake")
 })
 public class Suggestion {
+
+    public static ReofferSuggestion.Builder newReofferSuggestionBuilder() {
+        return ReofferSuggestion.newBuilder();
+    }
+
+    public static AltStakeSuggestion.Builder newAltStakeSuggestionBuilder() {
+        return AltStakeSuggestion.newBuilder();
+    }
+
 }

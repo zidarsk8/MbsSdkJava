@@ -11,20 +11,45 @@ public class Amount {
     @JsonProperty("value")
     private BigDecimal value;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCurrency() {
-        return currency;
+        return this.currency;
     }
 
     public void setCurrency(String value) {
-        currency = value;
+        this.currency = value;
     }
 
     public BigDecimal getValue() {
-        return value;
+        return this.value;
     }
 
     public void setValue(BigDecimal value) {
-        value = value;
+        this.value = value;
     }
 
+    public static class Builder {
+
+        private final Amount instance = new Amount();
+
+        private Builder() {
+        }
+
+        public Amount build() {
+            return this.instance;
+        }
+
+        public Builder setCurrency(String value) {
+            this.instance.setCurrency(value);
+            return this;
+        }
+
+        public Builder setValue(BigDecimal value) {
+            this.instance.setValue(value);
+            return this;
+        }
+    }
 }

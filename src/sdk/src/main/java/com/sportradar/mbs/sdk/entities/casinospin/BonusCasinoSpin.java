@@ -9,20 +9,45 @@ public class BonusCasinoSpin extends CasinoSpin {
     @JsonProperty("winningCount")
     private Integer winningCount;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public int getCount() {
-        return count;
+        return this.count;
     }
 
     public void setCount(int value) {
-        count = value;
+        this.count = value;
     }
 
     public Integer getWinningCount() {
-        return winningCount;
+        return this.winningCount;
     }
 
     public void setWinningCount(Integer value) {
-        winningCount = value;
+        this.winningCount = value;
     }
 
+    public static class Builder {
+
+        private final BonusCasinoSpin instance = new BonusCasinoSpin();
+
+        private Builder() {
+        }
+
+        public BonusCasinoSpin build() {
+            return this.instance;
+        }
+
+        public Builder setCount(int value) {
+            this.instance.setCount(value);
+            return this;
+        }
+
+        public Builder setWinningCount(Integer value) {
+            this.instance.setWinningCount(value);
+            return this;
+        }
+    }
 }

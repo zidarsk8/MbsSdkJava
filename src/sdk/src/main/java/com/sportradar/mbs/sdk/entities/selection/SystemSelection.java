@@ -9,20 +9,45 @@ public class SystemSelection extends Selection {
     @JsonProperty("size")
     private int[] size;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Selection[] getSelections() {
-        return selections;
+        return this.selections;
     }
 
     public void setSelections(Selection[] value) {
-        selections = value;
+        this.selections = value;
     }
 
     public int[] getSize() {
-        return size;
+        return this.size;
     }
 
     public void setSize(int[] value) {
-        size = value;
+        this.size = value;
     }
 
+    public static class Builder {
+
+        private final SystemSelection instance = new SystemSelection();
+
+        private Builder() {
+        }
+
+        public SystemSelection build() {
+            return this.instance;
+        }
+
+        public Builder setSelections(Selection... value) {
+            this.instance.setSelections(value);
+            return this;
+        }
+
+        public Builder setSize(int... value) {
+            this.instance.setSize(value);
+            return this;
+        }
+    }
 }

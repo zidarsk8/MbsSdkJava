@@ -25,68 +25,123 @@ public class WithdrawalInformRequest extends ContentRequest {
     @JsonProperty("status")
     private BalanceMoveStatus status;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getWalletId() {
-        return walletId;
+        return this.walletId;
     }
 
     public void setWalletId(String value) {
-        walletId = value;
+        this.walletId = value;
     }
 
     public String getWithdrawalId() {
-        return withdrawalId;
+        return this.withdrawalId;
     }
 
     public void setWithdrawalId(String value) {
-        withdrawalId = value;
+        this.withdrawalId = value;
     }
 
     public Amount getAmount() {
-        return amount;
+        return this.amount;
     }
 
     public void setAmount(Amount value) {
-        amount = value;
+        this.amount = value;
     }
 
     public EndCustomer getEndCustomer() {
-        return endCustomer;
+        return this.endCustomer;
     }
 
     public void setEndCustomer(EndCustomer value) {
-        endCustomer = value;
+        this.endCustomer = value;
     }
 
     public long getExecutedAtUtc() {
-        return executedAtUtc;
+        return this.executedAtUtc;
     }
 
     public void setExecutedAtUtc(long value) {
-        executedAtUtc = value;
+        this.executedAtUtc = value;
     }
 
     public Long getInitiatedAtUtc() {
-        return initiatedAtUtc;
+        return this.initiatedAtUtc;
     }
 
     public void setInitiatedAtUtc(Long value) {
-        initiatedAtUtc = value;
+        this.initiatedAtUtc = value;
     }
 
     public PaymentGateway getGateway() {
-        return gateway;
+        return this.gateway;
     }
 
     public void setGateway(PaymentGateway value) {
-        gateway = value;
+        this.gateway = value;
     }
 
     public BalanceMoveStatus getStatus() {
-        return status;
+        return this.status;
     }
 
     public void setStatus(BalanceMoveStatus value) {
-        status = value;
+        this.status = value;
     }
 
+    public static class Builder {
+
+        private final WithdrawalInformRequest instance = new WithdrawalInformRequest();
+
+        private Builder() {
+        }
+
+        public WithdrawalInformRequest build() {
+            return this.instance;
+        }
+
+        public Builder setWalletId(String value) {
+            this.instance.setWalletId(value);
+            return this;
+        }
+
+        public Builder setWithdrawalId(String value) {
+            this.instance.setWithdrawalId(value);
+            return this;
+        }
+
+        public Builder setAmount(Amount value) {
+            this.instance.setAmount(value);
+            return this;
+        }
+
+        public Builder setEndCustomer(EndCustomer value) {
+            this.instance.setEndCustomer(value);
+            return this;
+        }
+
+        public Builder setExecutedAtUtc(long value) {
+            this.instance.setExecutedAtUtc(value);
+            return this;
+        }
+
+        public Builder setInitiatedAtUtc(Long value) {
+            this.instance.setInitiatedAtUtc(value);
+            return this;
+        }
+
+        public Builder setGateway(PaymentGateway value) {
+            this.instance.setGateway(value);
+            return this;
+        }
+
+        public Builder setStatus(BalanceMoveStatus value) {
+            this.instance.setStatus(value);
+            return this;
+        }
+    }
 }

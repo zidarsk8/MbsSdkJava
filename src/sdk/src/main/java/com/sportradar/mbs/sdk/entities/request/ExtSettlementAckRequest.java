@@ -13,36 +13,71 @@ public class ExtSettlementAckRequest extends ContentRequest {
     @JsonProperty("ticketId")
     private String ticketId;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public boolean getAcknowledged() {
-        return acknowledged;
+        return this.acknowledged;
     }
 
     public void setAcknowledged(boolean value) {
-        acknowledged = value;
+        this.acknowledged = value;
     }
 
     public String getSettlementSignature() {
-        return settlementSignature;
+        return this.settlementSignature;
     }
 
     public void setSettlementSignature(String value) {
-        settlementSignature = value;
+        this.settlementSignature = value;
     }
 
     public String getSettlementId() {
-        return settlementId;
+        return this.settlementId;
     }
 
     public void setSettlementId(String value) {
-        settlementId = value;
+        this.settlementId = value;
     }
 
     public String getTicketId() {
-        return ticketId;
+        return this.ticketId;
     }
 
     public void setTicketId(String value) {
-        ticketId = value;
+        this.ticketId = value;
     }
 
+    public static class Builder {
+
+        private final ExtSettlementAckRequest instance = new ExtSettlementAckRequest();
+
+        private Builder() {
+        }
+
+        public ExtSettlementAckRequest build() {
+            return this.instance;
+        }
+
+        public Builder setAcknowledged(boolean value) {
+            this.instance.setAcknowledged(value);
+            return this;
+        }
+
+        public Builder setSettlementSignature(String value) {
+            this.instance.setSettlementSignature(value);
+            return this;
+        }
+
+        public Builder setSettlementId(String value) {
+            this.instance.setSettlementId(value);
+            return this;
+        }
+
+        public Builder setTicketId(String value) {
+            this.instance.setTicketId(value);
+            return this;
+        }
+    }
 }

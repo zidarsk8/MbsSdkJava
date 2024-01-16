@@ -15,4 +15,25 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = CashStake.class, name = "cash")
 })
 public class Stake {
+
+    public static FreeCashStake.Builder newFreeCashStakeBuilder() {
+        return FreeCashStake.newBuilder();
+    }
+
+    public static FreeRolloverStake.Builder newFreeRolloverStakeBuilder() {
+        return FreeRolloverStake.newBuilder();
+    }
+
+    public static BonusStake.Builder newBonusStakeBuilder() {
+        return BonusStake.newBuilder();
+    }
+
+    public static FreeStake.Builder newFreeStakeBuilder() {
+        return FreeStake.newBuilder();
+    }
+
+    public static CashStake.Builder newCashStakeBuilder() {
+        return CashStake.newBuilder();
+    }
+
 }

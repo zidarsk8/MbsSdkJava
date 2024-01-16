@@ -11,4 +11,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = DecimalOdds.class, name = "decimal")
 })
 public class Odds {
+
+    public static DecimalOdds.Builder newDecimalOddsBuilder() {
+        return DecimalOdds.newBuilder();
+    }
+
 }

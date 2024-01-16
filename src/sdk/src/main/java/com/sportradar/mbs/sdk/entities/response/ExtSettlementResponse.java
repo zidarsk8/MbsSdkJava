@@ -18,52 +18,97 @@ public class ExtSettlementResponse extends ContentResponse {
     @JsonProperty("status")
     private AcceptanceStatus status;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public int getCode() {
-        return code;
+        return this.code;
     }
 
     public void setCode(int value) {
-        code = value;
+        this.code = value;
     }
 
     public String getSignature() {
-        return signature;
+        return this.signature;
     }
 
     public void setSignature(String value) {
-        signature = value;
+        this.signature = value;
     }
 
     public String getSettlementId() {
-        return settlementId;
+        return this.settlementId;
     }
 
     public void setSettlementId(String value) {
-        settlementId = value;
+        this.settlementId = value;
     }
 
     public String getMessage() {
-        return message;
+        return this.message;
     }
 
     public void setMessage(String value) {
-        message = value;
+        this.message = value;
     }
 
     public String getTicketId() {
-        return ticketId;
+        return this.ticketId;
     }
 
     public void setTicketId(String value) {
-        ticketId = value;
+        this.ticketId = value;
     }
 
     public AcceptanceStatus getStatus() {
-        return status;
+        return this.status;
     }
 
     public void setStatus(AcceptanceStatus value) {
-        status = value;
+        this.status = value;
     }
 
+    public static class Builder {
+
+        private final ExtSettlementResponse instance = new ExtSettlementResponse();
+
+        private Builder() {
+        }
+
+        public ExtSettlementResponse build() {
+            return this.instance;
+        }
+
+        public Builder setCode(int value) {
+            this.instance.setCode(value);
+            return this;
+        }
+
+        public Builder setSignature(String value) {
+            this.instance.setSignature(value);
+            return this;
+        }
+
+        public Builder setSettlementId(String value) {
+            this.instance.setSettlementId(value);
+            return this;
+        }
+
+        public Builder setMessage(String value) {
+            this.instance.setMessage(value);
+            return this;
+        }
+
+        public Builder setTicketId(String value) {
+            this.instance.setTicketId(value);
+            return this;
+        }
+
+        public Builder setStatus(AcceptanceStatus value) {
+            this.instance.setStatus(value);
+            return this;
+        }
+    }
 }

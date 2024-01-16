@@ -11,20 +11,45 @@ public class EndCustomer {
     @JsonProperty("id")
     private String id;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public BigDecimal getConfidence() {
-        return confidence;
+        return this.confidence;
     }
 
     public void setConfidence(BigDecimal value) {
-        confidence = value;
+        this.confidence = value;
     }
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(String value) {
-        id = value;
+        this.id = value;
     }
 
+    public static class Builder {
+
+        private final EndCustomer instance = new EndCustomer();
+
+        private Builder() {
+        }
+
+        public EndCustomer build() {
+            return this.instance;
+        }
+
+        public Builder setConfidence(BigDecimal value) {
+            this.instance.setConfidence(value);
+            return this;
+        }
+
+        public Builder setId(String value) {
+            this.instance.setId(value);
+            return this;
+        }
+    }
 }

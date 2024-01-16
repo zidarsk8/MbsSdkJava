@@ -10,20 +10,45 @@ public class UfCustomBetSelection extends Selection {
     @JsonProperty("odds")
     private Odds odds;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public UfSelection[] getSelections() {
-        return selections;
+        return this.selections;
     }
 
     public void setSelections(UfSelection[] value) {
-        selections = value;
+        this.selections = value;
     }
 
     public Odds getOdds() {
-        return odds;
+        return this.odds;
     }
 
     public void setOdds(Odds value) {
-        odds = value;
+        this.odds = value;
     }
 
+    public static class Builder {
+
+        private final UfCustomBetSelection instance = new UfCustomBetSelection();
+
+        private Builder() {
+        }
+
+        public UfCustomBetSelection build() {
+            return this.instance;
+        }
+
+        public Builder setSelections(UfSelection... value) {
+            this.instance.setSelections(value);
+            return this;
+        }
+
+        public Builder setOdds(Odds value) {
+            this.instance.setOdds(value);
+            return this;
+        }
+    }
 }

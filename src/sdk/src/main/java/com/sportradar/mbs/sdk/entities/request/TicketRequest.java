@@ -13,28 +13,58 @@ public class TicketRequest extends ContentRequest {
     @JsonProperty("ticketId")
     private String ticketId;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public TicketContext getContext() {
-        return context;
+        return this.context;
     }
 
     public void setContext(TicketContext value) {
-        context = value;
+        this.context = value;
     }
 
     public Bet[] getBets() {
-        return bets;
+        return this.bets;
     }
 
     public void setBets(Bet[] value) {
-        bets = value;
+        this.bets = value;
     }
 
     public String getTicketId() {
-        return ticketId;
+        return this.ticketId;
     }
 
     public void setTicketId(String value) {
-        ticketId = value;
+        this.ticketId = value;
     }
 
+    public static class Builder {
+
+        private final TicketRequest instance = new TicketRequest();
+
+        private Builder() {
+        }
+
+        public TicketRequest build() {
+            return this.instance;
+        }
+
+        public Builder setContext(TicketContext value) {
+            this.instance.setContext(value);
+            return this;
+        }
+
+        public Builder setBets(Bet... value) {
+            this.instance.setBets(value);
+            return this;
+        }
+
+        public Builder setTicketId(String value) {
+            this.instance.setTicketId(value);
+            return this;
+        }
+    }
 }

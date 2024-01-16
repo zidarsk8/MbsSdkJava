@@ -9,20 +9,45 @@ public class SmsChannel extends Channel {
     @JsonProperty("deviceId")
     private String deviceId;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getLang() {
-        return lang;
+        return this.lang;
     }
 
     public void setLang(String value) {
-        lang = value;
+        this.lang = value;
     }
 
     public String getDeviceId() {
-        return deviceId;
+        return this.deviceId;
     }
 
     public void setDeviceId(String value) {
-        deviceId = value;
+        this.deviceId = value;
     }
 
+    public static class Builder {
+
+        private final SmsChannel instance = new SmsChannel();
+
+        private Builder() {
+        }
+
+        public SmsChannel build() {
+            return this.instance;
+        }
+
+        public Builder setLang(String value) {
+            this.instance.setLang(value);
+            return this;
+        }
+
+        public Builder setDeviceId(String value) {
+            this.instance.setDeviceId(value);
+            return this;
+        }
+    }
 }

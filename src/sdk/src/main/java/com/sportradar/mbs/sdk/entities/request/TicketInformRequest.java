@@ -10,20 +10,45 @@ public class TicketInformRequest extends ContentRequest {
     @JsonProperty("betValidations")
     private BetValidation[] betValidations;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public TicketRequest getTicket() {
-        return ticket;
+        return this.ticket;
     }
 
     public void setTicket(TicketRequest value) {
-        ticket = value;
+        this.ticket = value;
     }
 
     public BetValidation[] getBetValidations() {
-        return betValidations;
+        return this.betValidations;
     }
 
     public void setBetValidations(BetValidation[] value) {
-        betValidations = value;
+        this.betValidations = value;
     }
 
+    public static class Builder {
+
+        private final TicketInformRequest instance = new TicketInformRequest();
+
+        private Builder() {
+        }
+
+        public TicketInformRequest build() {
+            return this.instance;
+        }
+
+        public Builder setTicket(TicketRequest value) {
+            this.instance.setTicket(value);
+            return this;
+        }
+
+        public Builder setBetValidations(BetValidation... value) {
+            this.instance.setBetValidations(value);
+            return this;
+        }
+    }
 }

@@ -15,36 +15,71 @@ public class Bet {
     @JsonProperty("context")
     private BetContext context;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Stake[] getStake() {
-        return stake;
+        return this.stake;
     }
 
     public void setStake(Stake[] value) {
-        stake = value;
+        this.stake = value;
     }
 
     public Selection[] getSelections() {
-        return selections;
+        return this.selections;
     }
 
     public void setSelections(Selection[] value) {
-        selections = value;
+        this.selections = value;
     }
 
     public String getBetId() {
-        return betId;
+        return this.betId;
     }
 
     public void setBetId(String value) {
-        betId = value;
+        this.betId = value;
     }
 
     public BetContext getContext() {
-        return context;
+        return this.context;
     }
 
     public void setContext(BetContext value) {
-        context = value;
+        this.context = value;
     }
 
+    public static class Builder {
+
+        private final Bet instance = new Bet();
+
+        private Builder() {
+        }
+
+        public Bet build() {
+            return this.instance;
+        }
+
+        public Builder setStake(Stake... value) {
+            this.instance.setStake(value);
+            return this;
+        }
+
+        public Builder setSelections(Selection... value) {
+            this.instance.setSelections(value);
+            return this;
+        }
+
+        public Builder setBetId(String value) {
+            this.instance.setBetId(value);
+            return this;
+        }
+
+        public Builder setContext(BetContext value) {
+            this.instance.setContext(value);
+            return this;
+        }
+    }
 }

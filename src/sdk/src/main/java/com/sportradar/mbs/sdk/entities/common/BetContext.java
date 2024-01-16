@@ -10,20 +10,45 @@ public class BetContext {
     @JsonProperty("payoutCap")
     private Payout[] payoutCap;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public OddsChange getOddsChange() {
-        return oddsChange;
+        return this.oddsChange;
     }
 
     public void setOddsChange(OddsChange value) {
-        oddsChange = value;
+        this.oddsChange = value;
     }
 
     public Payout[] getPayoutCap() {
-        return payoutCap;
+        return this.payoutCap;
     }
 
     public void setPayoutCap(Payout[] value) {
-        payoutCap = value;
+        this.payoutCap = value;
     }
 
+    public static class Builder {
+
+        private final BetContext instance = new BetContext();
+
+        private Builder() {
+        }
+
+        public BetContext build() {
+            return this.instance;
+        }
+
+        public Builder setOddsChange(OddsChange value) {
+            this.instance.setOddsChange(value);
+            return this;
+        }
+
+        public Builder setPayoutCap(Payout... value) {
+            this.instance.setPayoutCap(value);
+            return this;
+        }
+    }
 }

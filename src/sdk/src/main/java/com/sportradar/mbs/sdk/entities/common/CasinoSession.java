@@ -22,60 +22,110 @@ public class CasinoSession {
     @JsonProperty("endUtc")
     private Long endUtc;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Stake[] getStake() {
-        return stake;
+        return this.stake;
     }
 
     public void setStake(Stake[] value) {
-        stake = value;
+        this.stake = value;
     }
 
     public CasinoGame getGame() {
-        return game;
+        return this.game;
     }
 
     public void setGame(CasinoGame value) {
-        game = value;
+        this.game = value;
     }
 
     public CasinoSpin[] getSpins() {
-        return spins;
+        return this.spins;
     }
 
     public void setSpins(CasinoSpin[] value) {
-        spins = value;
+        this.spins = value;
     }
 
     public Payout[] getPayout() {
-        return payout;
+        return this.payout;
     }
 
     public void setPayout(Payout[] value) {
-        payout = value;
+        this.payout = value;
     }
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(String value) {
-        id = value;
+        this.id = value;
     }
 
     public Long getStartUtc() {
-        return startUtc;
+        return this.startUtc;
     }
 
     public void setStartUtc(Long value) {
-        startUtc = value;
+        this.startUtc = value;
     }
 
     public Long getEndUtc() {
-        return endUtc;
+        return this.endUtc;
     }
 
     public void setEndUtc(Long value) {
-        endUtc = value;
+        this.endUtc = value;
     }
 
+    public static class Builder {
+
+        private final CasinoSession instance = new CasinoSession();
+
+        private Builder() {
+        }
+
+        public CasinoSession build() {
+            return this.instance;
+        }
+
+        public Builder setStake(Stake... value) {
+            this.instance.setStake(value);
+            return this;
+        }
+
+        public Builder setGame(CasinoGame value) {
+            this.instance.setGame(value);
+            return this;
+        }
+
+        public Builder setSpins(CasinoSpin... value) {
+            this.instance.setSpins(value);
+            return this;
+        }
+
+        public Builder setPayout(Payout... value) {
+            this.instance.setPayout(value);
+            return this;
+        }
+
+        public Builder setId(String value) {
+            this.instance.setId(value);
+            return this;
+        }
+
+        public Builder setStartUtc(Long value) {
+            this.instance.setStartUtc(value);
+            return this;
+        }
+
+        public Builder setEndUtc(Long value) {
+            this.instance.setEndUtc(value);
+            return this;
+        }
+    }
 }

@@ -13,28 +13,58 @@ public class CasinoSessionsRequest extends ContentRequest {
     @JsonProperty("context")
     private CasinoContext context;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public CasinoSession[] getSessions() {
-        return sessions;
+        return this.sessions;
     }
 
     public void setSessions(CasinoSession[] value) {
-        sessions = value;
+        this.sessions = value;
     }
 
     public String getReportId() {
-        return reportId;
+        return this.reportId;
     }
 
     public void setReportId(String value) {
-        reportId = value;
+        this.reportId = value;
     }
 
     public CasinoContext getContext() {
-        return context;
+        return this.context;
     }
 
     public void setContext(CasinoContext value) {
-        context = value;
+        this.context = value;
     }
 
+    public static class Builder {
+
+        private final CasinoSessionsRequest instance = new CasinoSessionsRequest();
+
+        private Builder() {
+        }
+
+        public CasinoSessionsRequest build() {
+            return this.instance;
+        }
+
+        public Builder setSessions(CasinoSession... value) {
+            this.instance.setSessions(value);
+            return this;
+        }
+
+        public Builder setReportId(String value) {
+            this.instance.setReportId(value);
+            return this;
+        }
+
+        public Builder setContext(CasinoContext value) {
+            this.instance.setContext(value);
+            return this;
+        }
+    }
 }

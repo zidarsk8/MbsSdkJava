@@ -10,20 +10,45 @@ public class OddsBoostSelection extends Selection {
     @JsonProperty("odds")
     private Odds odds;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public Selection getSelection() {
-        return selection;
+        return this.selection;
     }
 
     public void setSelection(Selection value) {
-        selection = value;
+        this.selection = value;
     }
 
     public Odds getOdds() {
-        return odds;
+        return this.odds;
     }
 
     public void setOdds(Odds value) {
-        odds = value;
+        this.odds = value;
     }
 
+    public static class Builder {
+
+        private final OddsBoostSelection instance = new OddsBoostSelection();
+
+        private Builder() {
+        }
+
+        public OddsBoostSelection build() {
+            return this.instance;
+        }
+
+        public Builder setSelection(Selection value) {
+            this.instance.setSelection(value);
+            return this;
+        }
+
+        public Builder setOdds(Odds value) {
+            this.instance.setOdds(value);
+            return this;
+        }
+    }
 }

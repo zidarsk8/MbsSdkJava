@@ -13,36 +13,71 @@ public class CancelAckRequest extends ContentRequest {
     @JsonProperty("ticketId")
     private String ticketId;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCancellationSignature() {
-        return cancellationSignature;
+        return this.cancellationSignature;
     }
 
     public void setCancellationSignature(String value) {
-        cancellationSignature = value;
+        this.cancellationSignature = value;
     }
 
     public boolean getAcknowledged() {
-        return acknowledged;
+        return this.acknowledged;
     }
 
     public void setAcknowledged(boolean value) {
-        acknowledged = value;
+        this.acknowledged = value;
     }
 
     public String getCancellationId() {
-        return cancellationId;
+        return this.cancellationId;
     }
 
     public void setCancellationId(String value) {
-        cancellationId = value;
+        this.cancellationId = value;
     }
 
     public String getTicketId() {
-        return ticketId;
+        return this.ticketId;
     }
 
     public void setTicketId(String value) {
-        ticketId = value;
+        this.ticketId = value;
     }
 
+    public static class Builder {
+
+        private final CancelAckRequest instance = new CancelAckRequest();
+
+        private Builder() {
+        }
+
+        public CancelAckRequest build() {
+            return this.instance;
+        }
+
+        public Builder setCancellationSignature(String value) {
+            this.instance.setCancellationSignature(value);
+            return this;
+        }
+
+        public Builder setAcknowledged(boolean value) {
+            this.instance.setAcknowledged(value);
+            return this;
+        }
+
+        public Builder setCancellationId(String value) {
+            this.instance.setCancellationId(value);
+            return this;
+        }
+
+        public Builder setTicketId(String value) {
+            this.instance.setTicketId(value);
+            return this;
+        }
+    }
 }

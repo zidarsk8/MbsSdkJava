@@ -10,20 +10,45 @@ public class ExtSettlementRequest extends ContentRequest {
     @JsonProperty("settlementId")
     private String settlementId;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public ExtSettlementDetails getDetails() {
-        return details;
+        return this.details;
     }
 
     public void setDetails(ExtSettlementDetails value) {
-        details = value;
+        this.details = value;
     }
 
     public String getSettlementId() {
-        return settlementId;
+        return this.settlementId;
     }
 
     public void setSettlementId(String value) {
-        settlementId = value;
+        this.settlementId = value;
     }
 
+    public static class Builder {
+
+        private final ExtSettlementRequest instance = new ExtSettlementRequest();
+
+        private Builder() {
+        }
+
+        public ExtSettlementRequest build() {
+            return this.instance;
+        }
+
+        public Builder setDetails(ExtSettlementDetails value) {
+            this.instance.setDetails(value);
+            return this;
+        }
+
+        public Builder setSettlementId(String value) {
+            this.instance.setSettlementId(value);
+            return this;
+        }
+    }
 }

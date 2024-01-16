@@ -10,20 +10,45 @@ public class CancelRequest extends ContentRequest {
     @JsonProperty("cancellationId")
     private String cancellationId;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public CancelDetails getDetails() {
-        return details;
+        return this.details;
     }
 
     public void setDetails(CancelDetails value) {
-        details = value;
+        this.details = value;
     }
 
     public String getCancellationId() {
-        return cancellationId;
+        return this.cancellationId;
     }
 
     public void setCancellationId(String value) {
-        cancellationId = value;
+        this.cancellationId = value;
     }
 
+    public static class Builder {
+
+        private final CancelRequest instance = new CancelRequest();
+
+        private Builder() {
+        }
+
+        public CancelRequest build() {
+            return this.instance;
+        }
+
+        public Builder setDetails(CancelDetails value) {
+            this.instance.setDetails(value);
+            return this;
+        }
+
+        public Builder setCancellationId(String value) {
+            this.instance.setCancellationId(value);
+            return this;
+        }
+    }
 }

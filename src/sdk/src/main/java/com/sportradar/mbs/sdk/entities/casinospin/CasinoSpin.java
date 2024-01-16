@@ -13,4 +13,17 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = FreeCasinoSpin.class, name = "free")
 })
 public class CasinoSpin {
+
+    public static BonusCasinoSpin.Builder newBonusCasinoSpinBuilder() {
+        return BonusCasinoSpin.newBuilder();
+    }
+
+    public static OrdinaryCasinoSpin.Builder newOrdinaryCasinoSpinBuilder() {
+        return OrdinaryCasinoSpin.newBuilder();
+    }
+
+    public static FreeCasinoSpin.Builder newFreeCasinoSpinBuilder() {
+        return FreeCasinoSpin.newBuilder();
+    }
+
 }

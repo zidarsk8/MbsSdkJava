@@ -16,44 +16,84 @@ public class BetCashoutDetails extends CashoutDetails {
     @JsonProperty("ticketId")
     private String ticketId;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public int getCode() {
-        return code;
+        return this.code;
     }
 
     public void setCode(int value) {
-        code = value;
+        this.code = value;
     }
 
     public String getBetId() {
-        return betId;
+        return this.betId;
     }
 
     public void setBetId(String value) {
-        betId = value;
+        this.betId = value;
     }
 
     public Payout[] getPayout() {
-        return payout;
+        return this.payout;
     }
 
     public void setPayout(Payout[] value) {
-        payout = value;
+        this.payout = value;
     }
 
     public String getTicketSignature() {
-        return ticketSignature;
+        return this.ticketSignature;
     }
 
     public void setTicketSignature(String value) {
-        ticketSignature = value;
+        this.ticketSignature = value;
     }
 
     public String getTicketId() {
-        return ticketId;
+        return this.ticketId;
     }
 
     public void setTicketId(String value) {
-        ticketId = value;
+        this.ticketId = value;
     }
 
+    public static class Builder {
+
+        private final BetCashoutDetails instance = new BetCashoutDetails();
+
+        private Builder() {
+        }
+
+        public BetCashoutDetails build() {
+            return this.instance;
+        }
+
+        public Builder setCode(int value) {
+            this.instance.setCode(value);
+            return this;
+        }
+
+        public Builder setBetId(String value) {
+            this.instance.setBetId(value);
+            return this;
+        }
+
+        public Builder setPayout(Payout... value) {
+            this.instance.setPayout(value);
+            return this;
+        }
+
+        public Builder setTicketSignature(String value) {
+            this.instance.setTicketSignature(value);
+            return this;
+        }
+
+        public Builder setTicketId(String value) {
+            this.instance.setTicketId(value);
+            return this;
+        }
+    }
 }

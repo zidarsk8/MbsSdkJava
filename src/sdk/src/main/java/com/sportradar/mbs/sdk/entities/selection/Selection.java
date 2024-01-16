@@ -17,4 +17,33 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = AccumulatorSelection.class, name = "accumulator")
 })
 public class Selection {
+
+    public static UfSelection.Builder newUfSelectionBuilder() {
+        return UfSelection.newBuilder();
+    }
+
+    public static OddsBoostSelection.Builder newOddsBoostSelectionBuilder() {
+        return OddsBoostSelection.newBuilder();
+    }
+
+    public static ExtSelection.Builder newExtSelectionBuilder() {
+        return ExtSelection.newBuilder();
+    }
+
+    public static SystemSelection.Builder newSystemSelectionBuilder() {
+        return SystemSelection.newBuilder();
+    }
+
+    public static WaysSelection.Builder newWaysSelectionBuilder() {
+        return WaysSelection.newBuilder();
+    }
+
+    public static UfCustomBetSelection.Builder newUfCustomBetSelectionBuilder() {
+        return UfCustomBetSelection.newBuilder();
+    }
+
+    public static AccumulatorSelection.Builder newAccumulatorSelectionBuilder() {
+        return AccumulatorSelection.newBuilder();
+    }
+
 }

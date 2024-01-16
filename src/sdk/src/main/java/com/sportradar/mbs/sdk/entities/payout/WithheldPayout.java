@@ -13,28 +13,58 @@ public class WithheldPayout extends Payout {
     @JsonProperty("currency")
     private String currency;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTraceId() {
-        return traceId;
+        return this.traceId;
     }
 
     public void setTraceId(String value) {
-        traceId = value;
+        this.traceId = value;
     }
 
     public BigDecimal getAmount() {
-        return amount;
+        return this.amount;
     }
 
     public void setAmount(BigDecimal value) {
-        amount = value;
+        this.amount = value;
     }
 
     public String getCurrency() {
-        return currency;
+        return this.currency;
     }
 
     public void setCurrency(String value) {
-        currency = value;
+        this.currency = value;
     }
 
+    public static class Builder {
+
+        private final WithheldPayout instance = new WithheldPayout();
+
+        private Builder() {
+        }
+
+        public WithheldPayout build() {
+            return this.instance;
+        }
+
+        public Builder setTraceId(String value) {
+            this.instance.setTraceId(value);
+            return this;
+        }
+
+        public Builder setAmount(BigDecimal value) {
+            this.instance.setAmount(value);
+            return this;
+        }
+
+        public Builder setCurrency(String value) {
+            this.instance.setCurrency(value);
+            return this;
+        }
+    }
 }

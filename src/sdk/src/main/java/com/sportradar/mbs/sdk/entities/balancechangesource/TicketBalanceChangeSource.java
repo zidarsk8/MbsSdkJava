@@ -9,20 +9,45 @@ public class TicketBalanceChangeSource extends BalanceChangeSource {
     @JsonProperty("id")
     private String id;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public TicketBalanceChangeAction getAction() {
-        return action;
+        return this.action;
     }
 
     public void setAction(TicketBalanceChangeAction value) {
-        action = value;
+        this.action = value;
     }
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(String value) {
-        id = value;
+        this.id = value;
     }
 
+    public static class Builder {
+
+        private final TicketBalanceChangeSource instance = new TicketBalanceChangeSource();
+
+        private Builder() {
+        }
+
+        public TicketBalanceChangeSource build() {
+            return this.instance;
+        }
+
+        public Builder setAction(TicketBalanceChangeAction value) {
+            this.instance.setAction(value);
+            return this;
+        }
+
+        public Builder setId(String value) {
+            this.instance.setId(value);
+            return this;
+        }
+    }
 }

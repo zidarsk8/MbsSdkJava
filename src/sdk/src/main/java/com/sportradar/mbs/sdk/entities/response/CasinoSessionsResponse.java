@@ -9,20 +9,45 @@ public class CasinoSessionsResponse extends ContentResponse {
     @JsonProperty("message")
     private String message;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public int getCode() {
-        return code;
+        return this.code;
     }
 
     public void setCode(int value) {
-        code = value;
+        this.code = value;
     }
 
     public String getMessage() {
-        return message;
+        return this.message;
     }
 
     public void setMessage(String value) {
-        message = value;
+        this.message = value;
     }
 
+    public static class Builder {
+
+        private final CasinoSessionsResponse instance = new CasinoSessionsResponse();
+
+        private Builder() {
+        }
+
+        public CasinoSessionsResponse build() {
+            return this.instance;
+        }
+
+        public Builder setCode(int value) {
+            this.instance.setCode(value);
+            return this;
+        }
+
+        public Builder setMessage(String value) {
+            this.instance.setMessage(value);
+            return this;
+        }
+    }
 }

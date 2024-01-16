@@ -11,7 +11,7 @@ public enum AcceptanceStatus {
     REJECTED("rejected"),
     ACCEPTED("accepted");
 
-    private static final Map<String, AcceptanceStatus> VALUES = new HashMap<>();
+    private static final Map<String, AcceptanceStatus> VALUES = new HashMap();
 
     static {
         for (final AcceptanceStatus val : EnumSet.allOf(AcceptanceStatus.class)) {

@@ -11,28 +11,58 @@ public class TerminalChannel extends Channel {
     @JsonProperty("lang")
     private String lang;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getTerminalId() {
-        return terminalId;
+        return this.terminalId;
     }
 
     public void setTerminalId(String value) {
-        terminalId = value;
+        this.terminalId = value;
     }
 
     public String getShopId() {
-        return shopId;
+        return this.shopId;
     }
 
     public void setShopId(String value) {
-        shopId = value;
+        this.shopId = value;
     }
 
     public String getLang() {
-        return lang;
+        return this.lang;
     }
 
     public void setLang(String value) {
-        lang = value;
+        this.lang = value;
     }
 
+    public static class Builder {
+
+        private final TerminalChannel instance = new TerminalChannel();
+
+        private Builder() {
+        }
+
+        public TerminalChannel build() {
+            return this.instance;
+        }
+
+        public Builder setTerminalId(String value) {
+            this.instance.setTerminalId(value);
+            return this;
+        }
+
+        public Builder setShopId(String value) {
+            this.instance.setShopId(value);
+            return this;
+        }
+
+        public Builder setLang(String value) {
+            this.instance.setLang(value);
+            return this;
+        }
+    }
 }

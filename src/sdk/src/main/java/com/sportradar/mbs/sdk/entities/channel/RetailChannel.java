@@ -11,28 +11,58 @@ public class RetailChannel extends Channel {
     @JsonProperty("deviceId")
     private String deviceId;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getShopId() {
-        return shopId;
+        return this.shopId;
     }
 
     public void setShopId(String value) {
-        shopId = value;
+        this.shopId = value;
     }
 
     public String getLang() {
-        return lang;
+        return this.lang;
     }
 
     public void setLang(String value) {
-        lang = value;
+        this.lang = value;
     }
 
     public String getDeviceId() {
-        return deviceId;
+        return this.deviceId;
     }
 
     public void setDeviceId(String value) {
-        deviceId = value;
+        this.deviceId = value;
     }
 
+    public static class Builder {
+
+        private final RetailChannel instance = new RetailChannel();
+
+        private Builder() {
+        }
+
+        public RetailChannel build() {
+            return this.instance;
+        }
+
+        public Builder setShopId(String value) {
+            this.instance.setShopId(value);
+            return this;
+        }
+
+        public Builder setLang(String value) {
+            this.instance.setLang(value);
+            return this;
+        }
+
+        public Builder setDeviceId(String value) {
+            this.instance.setDeviceId(value);
+            return this;
+        }
+    }
 }

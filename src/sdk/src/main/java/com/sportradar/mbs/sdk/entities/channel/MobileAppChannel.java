@@ -11,28 +11,58 @@ public class MobileAppChannel extends Channel {
     @JsonProperty("deviceId")
     private String deviceId;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getIp() {
-        return ip;
+        return this.ip;
     }
 
     public void setIp(String value) {
-        ip = value;
+        this.ip = value;
     }
 
     public String getLang() {
-        return lang;
+        return this.lang;
     }
 
     public void setLang(String value) {
-        lang = value;
+        this.lang = value;
     }
 
     public String getDeviceId() {
-        return deviceId;
+        return this.deviceId;
     }
 
     public void setDeviceId(String value) {
-        deviceId = value;
+        this.deviceId = value;
     }
 
+    public static class Builder {
+
+        private final MobileAppChannel instance = new MobileAppChannel();
+
+        private Builder() {
+        }
+
+        public MobileAppChannel build() {
+            return this.instance;
+        }
+
+        public Builder setIp(String value) {
+            this.instance.setIp(value);
+            return this;
+        }
+
+        public Builder setLang(String value) {
+            this.instance.setLang(value);
+            return this;
+        }
+
+        public Builder setDeviceId(String value) {
+            this.instance.setDeviceId(value);
+            return this;
+        }
+    }
 }

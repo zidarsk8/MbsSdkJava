@@ -13,4 +13,17 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = WithdrawalBalanceChangeSource.class, name = "withdrawal")
 })
 public class BalanceChangeSource {
+
+    public static TicketBalanceChangeSource.Builder newTicketBalanceChangeSourceBuilder() {
+        return TicketBalanceChangeSource.newBuilder();
+    }
+
+    public static DepositBalanceChangeSource.Builder newDepositBalanceChangeSourceBuilder() {
+        return DepositBalanceChangeSource.newBuilder();
+    }
+
+    public static WithdrawalBalanceChangeSource.Builder newWithdrawalBalanceChangeSourceBuilder() {
+        return WithdrawalBalanceChangeSource.newBuilder();
+    }
+
 }

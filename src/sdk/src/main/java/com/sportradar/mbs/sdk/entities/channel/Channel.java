@@ -20,4 +20,45 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = InternetChannel.class, name = "internet")
 })
 public class Channel {
+
+    public static TvAppChannel.Builder newTvAppChannelBuilder() {
+        return TvAppChannel.newBuilder();
+    }
+
+    public static AgentChannel.Builder newAgentChannelBuilder() {
+        return AgentChannel.newBuilder();
+    }
+
+    public static MobileAppChannel.Builder newMobileAppChannelBuilder() {
+        return MobileAppChannel.newBuilder();
+    }
+
+    public static PhoneChannel.Builder newPhoneChannelBuilder() {
+        return PhoneChannel.newBuilder();
+    }
+
+    public static CallCentreChannel.Builder newCallCentreChannelBuilder() {
+        return CallCentreChannel.newBuilder();
+    }
+
+    public static SmsChannel.Builder newSmsChannelBuilder() {
+        return SmsChannel.newBuilder();
+    }
+
+    public static MobileChannel.Builder newMobileChannelBuilder() {
+        return MobileChannel.newBuilder();
+    }
+
+    public static TerminalChannel.Builder newTerminalChannelBuilder() {
+        return TerminalChannel.newBuilder();
+    }
+
+    public static RetailChannel.Builder newRetailChannelBuilder() {
+        return RetailChannel.newBuilder();
+    }
+
+    public static InternetChannel.Builder newInternetChannelBuilder() {
+        return InternetChannel.newBuilder();
+    }
+
 }

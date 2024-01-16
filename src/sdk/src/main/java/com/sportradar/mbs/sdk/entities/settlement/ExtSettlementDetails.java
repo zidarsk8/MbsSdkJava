@@ -12,4 +12,13 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = TicketExtSettlementDetails.class, name = "ticket")
 })
 public class ExtSettlementDetails {
+
+    public static BetExtSettlementDetails.Builder newBetExtSettlementDetailsBuilder() {
+        return BetExtSettlementDetails.newBuilder();
+    }
+
+    public static TicketExtSettlementDetails.Builder newTicketExtSettlementDetailsBuilder() {
+        return TicketExtSettlementDetails.newBuilder();
+    }
+
 }

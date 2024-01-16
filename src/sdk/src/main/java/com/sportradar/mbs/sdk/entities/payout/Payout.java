@@ -13,4 +13,17 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = WithheldPayout.class, name = "withheld")
 })
 public class Payout {
+
+    public static FreePayout.Builder newFreePayoutBuilder() {
+        return FreePayout.newBuilder();
+    }
+
+    public static CashPayout.Builder newCashPayoutBuilder() {
+        return CashPayout.newBuilder();
+    }
+
+    public static WithheldPayout.Builder newWithheldPayoutBuilder() {
+        return WithheldPayout.newBuilder();
+    }
+
 }

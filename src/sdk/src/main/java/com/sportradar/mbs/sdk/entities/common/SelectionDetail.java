@@ -15,36 +15,71 @@ public class SelectionDetail {
     @JsonProperty("autoAcceptedOdds")
     private Odds autoAcceptedOdds;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public int getCode() {
-        return code;
+        return this.code;
     }
 
     public void setCode(int value) {
-        code = value;
+        this.code = value;
     }
 
     public Selection getSelection() {
-        return selection;
+        return this.selection;
     }
 
     public void setSelection(Selection value) {
-        selection = value;
+        this.selection = value;
     }
 
     public String getMessage() {
-        return message;
+        return this.message;
     }
 
     public void setMessage(String value) {
-        message = value;
+        this.message = value;
     }
 
     public Odds getAutoAcceptedOdds() {
-        return autoAcceptedOdds;
+        return this.autoAcceptedOdds;
     }
 
     public void setAutoAcceptedOdds(Odds value) {
-        autoAcceptedOdds = value;
+        this.autoAcceptedOdds = value;
     }
 
+    public static class Builder {
+
+        private final SelectionDetail instance = new SelectionDetail();
+
+        private Builder() {
+        }
+
+        public SelectionDetail build() {
+            return this.instance;
+        }
+
+        public Builder setCode(int value) {
+            this.instance.setCode(value);
+            return this;
+        }
+
+        public Builder setSelection(Selection value) {
+            this.instance.setSelection(value);
+            return this;
+        }
+
+        public Builder setMessage(String value) {
+            this.instance.setMessage(value);
+            return this;
+        }
+
+        public Builder setAutoAcceptedOdds(Odds value) {
+            this.instance.setAutoAcceptedOdds(value);
+            return this;
+        }
+    }
 }

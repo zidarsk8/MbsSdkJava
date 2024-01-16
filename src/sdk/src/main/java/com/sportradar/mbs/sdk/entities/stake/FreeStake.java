@@ -15,36 +15,71 @@ public class FreeStake extends Stake {
     @JsonProperty("currency")
     private String currency;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public StakeMode getMode() {
-        return mode;
+        return this.mode;
     }
 
     public void setMode(StakeMode value) {
-        mode = value;
+        this.mode = value;
     }
 
     public String getTraceId() {
-        return traceId;
+        return this.traceId;
     }
 
     public void setTraceId(String value) {
-        traceId = value;
+        this.traceId = value;
     }
 
     public BigDecimal getAmount() {
-        return amount;
+        return this.amount;
     }
 
     public void setAmount(BigDecimal value) {
-        amount = value;
+        this.amount = value;
     }
 
     public String getCurrency() {
-        return currency;
+        return this.currency;
     }
 
     public void setCurrency(String value) {
-        currency = value;
+        this.currency = value;
     }
 
+    public static class Builder {
+
+        private final FreeStake instance = new FreeStake();
+
+        private Builder() {
+        }
+
+        public FreeStake build() {
+            return this.instance;
+        }
+
+        public Builder setMode(StakeMode value) {
+            this.instance.setMode(value);
+            return this;
+        }
+
+        public Builder setTraceId(String value) {
+            this.instance.setTraceId(value);
+            return this;
+        }
+
+        public Builder setAmount(BigDecimal value) {
+            this.instance.setAmount(value);
+            return this;
+        }
+
+        public Builder setCurrency(String value) {
+            this.instance.setCurrency(value);
+            return this;
+        }
+    }
 }

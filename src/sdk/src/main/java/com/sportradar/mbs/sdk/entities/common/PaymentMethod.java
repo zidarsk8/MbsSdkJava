@@ -10,7 +10,7 @@ import java.util.Map;
 public enum PaymentMethod {
     CREDIT_CARD("credit-card");
 
-    private static final Map<String, PaymentMethod> VALUES = new HashMap<>();
+    private static final Map<String, PaymentMethod> VALUES = new HashMap();
 
     static {
         for (final PaymentMethod val : EnumSet.allOf(PaymentMethod.class)) {

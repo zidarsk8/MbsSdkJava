@@ -8,10 +8,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum StakeMode {
-    TOTAL("total"),
-    UNIT("unit");
+    UNIT("unit"),
+    TOTAL("total");
 
-    private static final Map<String, StakeMode> VALUES = new HashMap<>();
+    private static final Map<String, StakeMode> VALUES = new HashMap();
 
     static {
         for (final StakeMode val : EnumSet.allOf(StakeMode.class)) {

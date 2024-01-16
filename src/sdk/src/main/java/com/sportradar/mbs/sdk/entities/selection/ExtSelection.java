@@ -14,36 +14,71 @@ public class ExtSelection extends Selection {
     @JsonProperty("outcome")
     private String outcome;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public long getExpSettleTime() {
-        return expSettleTime;
+        return this.expSettleTime;
     }
 
     public void setExpSettleTime(long value) {
-        expSettleTime = value;
+        this.expSettleTime = value;
     }
 
     public Odds getOdds() {
-        return odds;
+        return this.odds;
     }
 
     public void setOdds(Odds value) {
-        odds = value;
+        this.odds = value;
     }
 
     public String getEvent() {
-        return event;
+        return this.event;
     }
 
     public void setEvent(String value) {
-        event = value;
+        this.event = value;
     }
 
     public String getOutcome() {
-        return outcome;
+        return this.outcome;
     }
 
     public void setOutcome(String value) {
-        outcome = value;
+        this.outcome = value;
     }
 
+    public static class Builder {
+
+        private final ExtSelection instance = new ExtSelection();
+
+        private Builder() {
+        }
+
+        public ExtSelection build() {
+            return this.instance;
+        }
+
+        public Builder setExpSettleTime(long value) {
+            this.instance.setExpSettleTime(value);
+            return this;
+        }
+
+        public Builder setOdds(Odds value) {
+            this.instance.setOdds(value);
+            return this;
+        }
+
+        public Builder setEvent(String value) {
+            this.instance.setEvent(value);
+            return this;
+        }
+
+        public Builder setOutcome(String value) {
+            this.instance.setOutcome(value);
+            return this;
+        }
+    }
 }

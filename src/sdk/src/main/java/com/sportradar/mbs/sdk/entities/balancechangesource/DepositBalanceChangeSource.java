@@ -7,12 +7,32 @@ public class DepositBalanceChangeSource extends BalanceChangeSource {
     @JsonProperty("id")
     private String id;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(String value) {
-        id = value;
+        this.id = value;
     }
 
+    public static class Builder {
+
+        private final DepositBalanceChangeSource instance = new DepositBalanceChangeSource();
+
+        private Builder() {
+        }
+
+        public DepositBalanceChangeSource build() {
+            return this.instance;
+        }
+
+        public Builder setId(String value) {
+            this.instance.setId(value);
+            return this;
+        }
+    }
 }

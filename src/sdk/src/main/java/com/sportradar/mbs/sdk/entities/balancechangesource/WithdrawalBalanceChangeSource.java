@@ -7,12 +7,32 @@ public class WithdrawalBalanceChangeSource extends BalanceChangeSource {
     @JsonProperty("id")
     private String id;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(String value) {
-        id = value;
+        this.id = value;
     }
 
+    public static class Builder {
+
+        private final WithdrawalBalanceChangeSource instance = new WithdrawalBalanceChangeSource();
+
+        private Builder() {
+        }
+
+        public WithdrawalBalanceChangeSource build() {
+            return this.instance;
+        }
+
+        public Builder setId(String value) {
+            this.instance.setId(value);
+            return this;
+        }
+    }
 }

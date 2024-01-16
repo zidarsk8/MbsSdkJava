@@ -9,20 +9,45 @@ public class CasinoGame {
     @JsonProperty("id")
     private String id;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getProvider() {
-        return provider;
+        return this.provider;
     }
 
     public void setProvider(String value) {
-        provider = value;
+        this.provider = value;
     }
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(String value) {
-        id = value;
+        this.id = value;
     }
 
+    public static class Builder {
+
+        private final CasinoGame instance = new CasinoGame();
+
+        private Builder() {
+        }
+
+        public CasinoGame build() {
+            return this.instance;
+        }
+
+        public Builder setProvider(String value) {
+            this.instance.setProvider(value);
+            return this;
+        }
+
+        public Builder setId(String value) {
+            this.instance.setId(value);
+            return this;
+        }
+    }
 }

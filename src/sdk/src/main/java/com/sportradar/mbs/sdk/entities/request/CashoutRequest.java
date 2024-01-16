@@ -10,20 +10,45 @@ public class CashoutRequest extends ContentRequest {
     @JsonProperty("details")
     private CashoutDetails details;
 
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
     public String getCashoutId() {
-        return cashoutId;
+        return this.cashoutId;
     }
 
     public void setCashoutId(String value) {
-        cashoutId = value;
+        this.cashoutId = value;
     }
 
     public CashoutDetails getDetails() {
-        return details;
+        return this.details;
     }
 
     public void setDetails(CashoutDetails value) {
-        details = value;
+        this.details = value;
     }
 
+    public static class Builder {
+
+        private final CashoutRequest instance = new CashoutRequest();
+
+        private Builder() {
+        }
+
+        public CashoutRequest build() {
+            return this.instance;
+        }
+
+        public Builder setCashoutId(String value) {
+            this.instance.setCashoutId(value);
+            return this;
+        }
+
+        public Builder setDetails(CashoutDetails value) {
+            this.instance.setDetails(value);
+            return this;
+        }
+    }
 }

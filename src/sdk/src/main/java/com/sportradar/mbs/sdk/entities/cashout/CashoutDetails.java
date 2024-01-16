@@ -14,4 +14,21 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = BetPartialCashoutDetails.class, name = "bet-partial")
 })
 public class CashoutDetails {
+
+    public static BetCashoutDetails.Builder newBetCashoutDetailsBuilder() {
+        return BetCashoutDetails.newBuilder();
+    }
+
+    public static TicketPartialCashoutDetails.Builder newTicketPartialCashoutDetailsBuilder() {
+        return TicketPartialCashoutDetails.newBuilder();
+    }
+
+    public static TicketCashoutDetails.Builder newTicketCashoutDetailsBuilder() {
+        return TicketCashoutDetails.newBuilder();
+    }
+
+    public static BetPartialCashoutDetails.Builder newBetPartialCashoutDetailsBuilder() {
+        return BetPartialCashoutDetails.newBuilder();
+    }
+
 }
