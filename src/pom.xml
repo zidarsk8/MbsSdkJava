@@ -5,8 +5,9 @@
     <groupId>com.sportradar.mbs.sdk</groupId>
     <artifactId>mbs-sdk-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.9-SNAPSHOT</version>
     <name>MBS SDK</name>
+    <description>MBS SDK is a client library that enables easier integration with the Sportradar MBS</description>
     <inceptionYear>2024</inceptionYear>
     <url>http://sdk.sportradar.com/mts/java</url>
     <licenses>
@@ -33,7 +34,6 @@
     <scm>
         <url>https://github.com/sportradar/MbsSdkJava</url>
         <connection>scm:git:git@github.com:sportradar/MbsSdkJava.git</connection>
-    <tag>HEAD</tag>
   </scm>
 
     <modules>
@@ -76,7 +76,7 @@
 
     <profiles>
         <profile>
-            <id>mbss.ossrh</id>
+            <id>mbs.ossrh</id>
             <build>
                 <plugins>
                     <plugin>
@@ -119,7 +119,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>3.1.0</version>
+                        <version>1.6</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
