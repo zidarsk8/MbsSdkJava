@@ -1,5 +1,6 @@
 package com.sportradar.mbs.sdk.internal.connection;
 
+import com.sportradar.mbs.sdk.exceptions.SdkException;
 import com.sportradar.mbs.sdk.exceptions.WebSocketConnectionException;
 import com.sportradar.mbs.sdk.internal.config.ImmutableConfig;
 import com.sportradar.mbs.sdk.internal.config.WebSocketConnectionConfig;
@@ -49,7 +50,7 @@ public class WebSocketConnection implements AutoCloseable {
     }
 
     public void connect() {
-        reconnectWebSocket(null);
+        reconnectWebSocket(null, true);
         final Thread thread = new Thread(this::sendLoop);
         thread.setDaemon(true);
         this.senderThread = thread;
@@ -88,7 +89,7 @@ public class WebSocketConnection implements AutoCloseable {
                     sendMsg(ws, msgs);
                 } catch (final Exception e) {
                     this.receiveQueue.add(new ExcWsOutputMessage(msg, new WebSocketConnectionException(e)));
-                    reconnectWebSocket(ws);
+                    reconnectWebSocket(ws, false);
                     sendMsg(this.webSocket.get(), msgs);
                 }
                 this.receiveQueue.add(new SentWsOutputMessage(msg));
@@ -111,26 +112,31 @@ public class WebSocketConnection implements AutoCloseable {
         ws.sendFrame(frames);
     }
 
-    private void reconnectWebSocket(final WebSocket ws) {
+    private void reconnectWebSocket(final WebSocket ws, final boolean throwExc) {
         if (this.webSocket.get() != ws) {
             return;
         }
-        final WebSocket newWs = new WebSocket(this, config.getWsServer(), tokenProvider.getToken());
+        final WebSocket newWs;
         try {
+            newWs = new WebSocket(this, config.getWsServer(), tokenProvider.getToken());
             if (!newWs.connectBlocking(config.getWsReconnectTimeout().toMillis(), MILLISECONDS)) {
-                this.receiveQueue.add(new ExcWsOutputMessage(null, new WebSocketConnectionException(
-                        "Socket connect failed.")));
-                return;
+                throw new WebSocketConnectionException("Socket connect failed.");
             }
         } catch (final Exception exception) {
-            this.receiveQueue.add(new ExcWsOutputMessage(null, new WebSocketConnectionException(exception)));
+            final SdkException sdkExc = exception instanceof SdkException
+                    ? (SdkException) exception
+                    : new WebSocketConnectionException(exception);
+            if (throwExc) {
+                throw sdkExc;
+            }
+            this.receiveQueue.add(new ExcWsOutputMessage(null, sdkExc));
             return;
         }
         if (this.webSocket.compareAndSet(ws, newWs)) {
             if (ws != null) {
                 delay(ws::close, config.getWsConsumerGraceTimeout().toMillis(), MILLISECONDS);
             }
-            delay(() -> reconnectWebSocket(newWs), config.getWsRefreshConnectionTimeout().toMillis(), MILLISECONDS);
+            delay(() -> reconnectWebSocket(newWs, false), config.getWsRefreshConnectionTimeout().toMillis(), MILLISECONDS);
         } else {
             newWs.close();
         }
@@ -146,12 +152,12 @@ public class WebSocketConnection implements AutoCloseable {
     private void onClose(final WebSocket ws, final int code, final String msg, final boolean remote) {
         this.receiveQueue.add(new ExcWsOutputMessage(null, new WebSocketConnectionException(
                 "Socket closed by " + (remote ? "server" : "client") + ", code: " + code + ", reason: " + msg + ".")));
-        reconnectWebSocket(ws);
+        reconnectWebSocket(ws, false);
     }
 
     private void onError(final WebSocket ws, final Exception exception) {
         this.receiveQueue.add(new ExcWsOutputMessage(null, new WebSocketConnectionException(exception)));
-        reconnectWebSocket(ws);
+        reconnectWebSocket(ws, false);
     }
 
     public static class WebSocket extends WebSocketClient {

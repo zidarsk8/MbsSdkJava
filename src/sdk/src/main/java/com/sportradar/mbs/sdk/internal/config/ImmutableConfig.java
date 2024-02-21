@@ -54,7 +54,7 @@ public class ImmutableConfig implements
         this.wsSendMessageTimeout = withDefault(config.getWsSendMessageTimeout(), Duration.ofSeconds(1), MIN_DURATION);
         this.wsReceiveMessageTimeout = withDefault(config.getWsReceiveMessageTimeout(), Duration.ofSeconds(30), MIN_DURATION);
         this.wsConsumerGraceTimeout = withDefault(config.getWsConsumerGraceTimeout(), Duration.ofMinutes(1), MIN_DURATION);
-        this.wsRefreshConnectionTimeout = withDefault(config.getWsRefreshConnectionTimeout(), Duration.ofMinutes(40), MIN_DURATION);
+        this.wsRefreshConnectionTimeout = withDefault(config.getWsRefreshConnectionTimeout(), Duration.ofMinutes(100), MIN_DURATION);
         this.protocolRetryCount = withDefault(config.getProtocolRetryCount(), 0, 0);
         this.protocolMaxSendBufferSize = withDefault(config.getProtocolMaxSendBufferSize(), 1_000, 1);
         this.protocolConnectTimeout = withDefault(config.getProtocolConnectTimeout(), Duration.ofSeconds(10), MIN_DURATION);
