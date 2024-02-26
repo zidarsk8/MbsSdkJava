@@ -3,6 +3,9 @@ package com.sportradar.mbs.sdk.entities.selection;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
+/**
+ * Represents a selection.
+ */
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
@@ -18,30 +21,65 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 })
 public class Selection {
 
+    /**
+     * Creates a new instance of {@link UfSelection.Builder}.
+     *
+     * @return a new instance of {@link UfSelection.Builder}
+     */
     public static UfSelection.Builder newUfSelectionBuilder() {
         return UfSelection.newBuilder();
     }
 
+    /**
+     * Creates a new instance of {@link OddsBoostSelection.Builder}.
+     *
+     * @return a new instance of {@link OddsBoostSelection.Builder}
+     */
     public static OddsBoostSelection.Builder newOddsBoostSelectionBuilder() {
         return OddsBoostSelection.newBuilder();
     }
 
+    /**
+     * Creates a new instance of {@link ExtSelection.Builder}.
+     *
+     * @return a new instance of {@link ExtSelection.Builder}
+     */
     public static ExtSelection.Builder newExtSelectionBuilder() {
         return ExtSelection.newBuilder();
     }
 
+    /**
+     * Creates a new instance of {@link SystemSelection.Builder}.
+     *
+     * @return a new instance of {@link SystemSelection.Builder}
+     */
     public static SystemSelection.Builder newSystemSelectionBuilder() {
         return SystemSelection.newBuilder();
     }
 
+    /**
+     * Creates a new instance of {@link WaysSelection.Builder}.
+     *
+     * @return a new instance of {@link WaysSelection.Builder}
+     */
     public static WaysSelection.Builder newWaysSelectionBuilder() {
         return WaysSelection.newBuilder();
     }
 
+    /**
+     * Creates a new instance of {@link UfCustomBetSelection.Builder}.
+     *
+     * @return a new instance of {@link UfCustomBetSelection.Builder}
+     */
     public static UfCustomBetSelection.Builder newUfCustomBetSelectionBuilder() {
         return UfCustomBetSelection.newBuilder();
     }
 
+    /**
+     * Creates a new instance of {@link AccumulatorSelection.Builder}.
+     *
+     * @return a new instance of {@link AccumulatorSelection.Builder}
+     */
     public static AccumulatorSelection.Builder newAccumulatorSelectionBuilder() {
         return AccumulatorSelection.newBuilder();
     }

@@ -1,5 +1,9 @@
 package com.sportradar.mbs.sdk.exceptions;
 
+/**
+ * The ExceptionCode class represents the error codes used in the SDK exceptions.
+ * Each code corresponds to a specific type of error.
+ */
 public class ExceptionCode {
     public static final int AuthTokenFailure = 1;
     public static final int WebSocketFailure = 2;
